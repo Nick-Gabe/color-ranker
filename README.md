@@ -4,9 +4,10 @@ A tool which read an image using the Jimp library, and returns a complete rankin
 ![Badge](https://img.shields.io/github/issues/Kiddyzaster/color-ranker)
 ![Badge](https://img.shields.io/github/forks/Kiddyzaster/color-ranker)
 ![Badge](https://img.shields.io/github/stars/Kiddyzaster/color-ranker)
-![Badge](https://img.shields.io/github/license/Kiddyzaster/color-ranker)
+![Badge](https://img.shields.io/badge/license-MIT-brightgreen)
 
 <!--ts-->
+   * [Installation](#installation)
    * [How to Use](#how-to-use)
       * [Directory](#directory)
       * [Output](#output)
@@ -16,13 +17,20 @@ A tool which read an image using the Jimp library, and returns a complete rankin
    * [License](#mit-license)
 <!--te-->
 
+## Installation
+~~~javascript
+npm install color-ranker
+~~~
+
+
 ## How to use
 ~~~javascript
-const { Rank } = require("./ranker");
+const rank  = require("color-ranker");
 // or if you're using ES6
-import { Rank } from "./ranker";
+import rank from "color-ranker";
 
 Rank("directory", "output", tolerance)
+// Explanation below
 ~~~
 ### Directory
 First you need to say the image directory to the function, where the image is located.
@@ -74,7 +82,7 @@ Already developed Discord Chatbots, Games and [Bad Apple](https://www.youtube.co
 This is my first public code, but i won't stop there and I'm planning to do more contributions to the community in the future.
 
 # MIT License
-Copyright (c) 2021 ![Nícolas Gabriel da Silva Sena](https://github.com/Kiddyzaster)
+Copyright (c) 2021 [Nícolas Gabriel da Silva Sena](https://github.com/Kiddyzaster)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

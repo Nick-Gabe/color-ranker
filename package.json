@@ -1,6 +1,6 @@
 {
   "name": "color-ranker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A tool which read an image and make a ranking of the most used colors on it.",
   "main": "index.js",
   "scripts": {
