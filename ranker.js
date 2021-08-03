@@ -13,7 +13,6 @@ module.exports = {
             img.resize(300, Jimp.AUTO)
             var width = img.getWidth()
             var height = img.getHeight()
-            console.log(width, height)
         } else {
             var width = img.getWidth()
             var height = img.getHeight()
