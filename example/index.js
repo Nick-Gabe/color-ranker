@@ -1,4 +1,3 @@
-const { Rank } = require("./ranker");
+const { Rank } = require("../ranker");
 
-Rank('example.png', 'hex', 10).then(x => console.log(x))
-
+Rank('example/image.png', 'hex', 30).then(premise => console.log(premise.length))

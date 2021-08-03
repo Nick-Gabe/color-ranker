@@ -10,7 +10,7 @@
     "name": "Nícolas Gabriel",
     "email": "nicolasgabrielctt@gmail.com"
   },
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "jimp": "^0.16.1",
     "rgb2hex": "^0.2.5"
