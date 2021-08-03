@@ -2,7 +2,7 @@ const Jimp = require('jimp')
 const rgb2hex = require('rgb2hex')
 
 module.exports = {
-    async Rank(directory, format = 'rgb', tolerance = 30 ) {
+    async rank(directory, format = 'rgb', tolerance = 30 ) {
         if(isNaN(tolerance)) tolerance = 30
 
         const img = await Jimp.read(`${directory}`)
