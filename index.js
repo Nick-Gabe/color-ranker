@@ -1,3 +1,3 @@
-const { rank } = require("./ranker")
+const { colorranker } = require("./ranker")
 
-module.exports = rank;
+module.exports = colorranker;

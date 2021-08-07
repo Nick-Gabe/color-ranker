@@ -1,6 +1,6 @@
 {
   "name": "color-ranker",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "A tool which read an image and make a ranking of the most used colors on it.",
   "main": "index.js",
   "scripts": {
@@ -11,6 +11,20 @@
     "email": "nicolasgabrielctt@gmail.com"
   },
   "license": "MIT",
+  "keywords": [
+    "color",
+    "colors",
+    "ranking",
+    "hex",
+    "rgb",
+    "color ranker",
+    "image"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Nick-Gabe/color-ranker"
+  },
+  "homepage": "https://github.com/Nick-Gabe/color-ranker/blob/main/README.md",
   "dependencies": {
     "jimp": "^0.16.1",
     "rgb2hex": "^0.2.5"

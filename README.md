@@ -1,10 +1,11 @@
 # ![Color-Ranker](https://i.imgur.com/fgNtVaC.png)
-A tool which read an image using the Jimp library, and returns a complete ranking based in the most used colors on it.
+An image reader tool which gets a complete ranking based in the most used colors on it.
 
-![Badge](https://img.shields.io/github/issues/Kiddyzaster/color-ranker)
-![Badge](https://img.shields.io/github/forks/Kiddyzaster/color-ranker)
-![Badge](https://img.shields.io/github/stars/Kiddyzaster/color-ranker)
-![Badge](https://img.shields.io/badge/license-MIT-brightgreen)
+![Issues](https://img.shields.io/github/issues/Kiddyzaster/color-ranker)
+![Forks](https://img.shields.io/github/forks/Kiddyzaster/color-ranker?color=brightgreen)
+![Stars](https://img.shields.io/github/stars/Kiddyzaster/color-ranker?color=brightgreen)
+![License](https://img.shields.io/npm/l/color-ranker?color=brightgreen)
+![Version](https://img.shields.io/npm/v/color-ranker?color=0669b2&label=version)
 
 <!--ts-->
    * [Installation](#installation)
@@ -12,9 +13,10 @@ A tool which read an image using the Jimp library, and returns a complete rankin
       * [Directory](#directory)
       * [Output](#output)
       * [Tolerance](#tolerance)
+      * [Percentage](#percentage)
    * [Retrieving the data](#retrieving-the-data)
    * [Author](#author)
-   * [License](#mit-license)
+   * [License](#license)
 <!--te-->
 
 ## Installation
@@ -25,39 +27,62 @@ npm install color-ranker
 
 ## How to use
 ~~~javascript
-const rank  = require("color-ranker");
+var colorranker  = require("color-ranker");
 // or if you're using ES6
-import rank from "color-ranker";
+import colorranker from "color-ranker";
 
-Rank("directory", "output", tolerance)
-// Explanation below
+colorranker({directory, output, tolerance, percentage})
+// The function must receive these values inside an object
+// Further explanation below
 ~~~
 ### Directory
+~~~javascript
+{ directory: "path/to/image.png" }
+~~~
 First you need to say the image directory to the function, where the image is located.
 
-You must send it as a **string**, including its **format** "image.png", "image.jpeg", etc...
+You must send it as a string, including its format "image.png", "image.jpeg", etc...
 
 
 ### Output
+~~~javascript
+{ output: "hex" }
+// default: RGBA
+~~~
 Currently the color codes available for output are:
+* RGBA (255, 255, 255, 255)
 * RGB (255, 255, 255)
 * HEX (#000000)
+* Integer (0xFFFFFFFF)
 
-You must pass them as a string, for example "hex". The standard is RGB.
+You must pass them as a string, e. g. "hex", "integer".
 
 ### Tolerance
+~~~javascript
+{ tolerance: 0 }
+// default: 30
+~~~
 Tolerance is the maximum amount of RGB variation that can consider one color the same as another.
 
-The standard tolerance is 30, this means (225, 225, 225) is considered the same as (255, 255, 255).
+The default tolerance being 30 means (225, 225, 225) is considered the same color as (255, 255, 255).
 
 More tolerance = faster execution, but also means more detail will be lost. Less tolerance is the opposite.
 
-## Retrieving the data
-The color ranking will be returned as a premise.
+### Percentage
 ~~~javascript
-Rank("example/image.png", "hex", 30).then(premise => console.log(premise))
+{ percent: true } // ---> output { color: '#e3fffe', quantity: 42.96 }
+// default: false
+~~~
+You can give the function a parameter called "percent", if set to true it will return the percentage of pixels in the image equivalent to each color. 
+
+By default it is set to false, meaning it will display only the quantity of pixels instead.
+
+## Retrieving the data
+The color ranking will be returned as a promise.
+~~~javascript
+colorranker({directory: "example/image.png", output: "hex", tolerance: 30}).then(promise => console.log(promise))
 // or you can use await
-const ranking = await Rank("example/image.png", "hex", 30)
+const ranking = await colorranker({directory: "example/image.png", output: "hex", tolerance: 30})
 console.log(ranking)
 
 // Output:
@@ -77,27 +102,10 @@ console.log(ranking)
 ~~~
 
 ## Author
-I'm Nícolas Gabriel, known as Kiddyzaster or Nick Gabe, I started programming in 2020.
-Already developed Discord Chatbots, Games and [Bad Apple](https://www.youtube.com/watch?v=XzXHIuJOCPk).
-This is my first public code, but i won't stop there and I'm planning to do more contributions to the community in the future.
+I'm Nícolas Gabriel, also known as Nick Gabe, I started programming in 2020.
+Already developed Discord Chatbots, Games, Bad Apple and now Libraries.
+This is my first public code, but I won't stop there and I'm planning to do more contributions to the community in the future.
 
-# MIT License
+# License
+[MIT License](https://choosealicense.com/licenses/mit/)
 Copyright (c) 2021 [Nícolas Gabriel da Silva Sena](https://github.com/Kiddyzaster)
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.

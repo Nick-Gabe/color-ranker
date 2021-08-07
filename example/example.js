@@ -1,3 +1,8 @@
-const rank = require('../index')
+var colorranker = require('../index')
 
-rank('example/image.png').then(premise => console.log(premise))
+colorranker({
+    directory: 'example/image2.png',
+    output: 'integer',
+    percent: true,
+    tolerance: 10
+}).then(promise => console.log(promise))
